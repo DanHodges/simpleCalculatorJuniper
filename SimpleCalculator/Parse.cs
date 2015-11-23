@@ -10,13 +10,19 @@ namespace SimpleCalculator
 {
     public class Parse
     {
-        private string Input;
+        private string Input = "";
         public List<int> Numbers = new List<int>();
         string[] InputArray = new string[3];
 
         public Parse (string input)
         {
-            Input = input;
+            foreach (char letter in input)
+            {
+                if (!char.IsWhiteSpace(letter))
+                {
+                    Input += letter;
+                }
+            }
         }
         public string[] ParseInput ()
         {
@@ -28,21 +34,13 @@ namespace SimpleCalculator
             string CurrentString = "";
             for (int i = 0; i < Input.Length; i++)
             {
+                CurrentString += Input[i];
                 if (Signs.Contains(Input[i]))
                 {
-                    CurrentString += Input[i];
                     if(Signs.Contains(Input[i + 1]))
                     {
                         throw new ArgumentException("We don't play that way");
                     }
-                    continue;
-                }
-                if (!char.IsWhiteSpace(Input[i]))
-                {
-                  CurrentString += Input[i];
-                }
-                if (char.IsWhiteSpace(Input[i]))
-                {
                     continue;
                 }
                 if (i < Input.Length -1 && Signs.Contains(Input[i+1]))
