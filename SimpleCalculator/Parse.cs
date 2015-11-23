@@ -26,23 +26,23 @@ namespace SimpleCalculator
             int OpIndex = 0;
             char[] Signs = new char[4] { '+', '-', '*', '/' };
             string CurrentString = "";
+            //foreach (char i in Input)
+            //{
+            //    if (i < Input.Length)
+            //    {
+            //        Console.Write(Input[i]);
+            //    }
+            //    //if (char.IsWhiteSpace(Input[i]))
+            //    //{
+            //    //    Input.Remove(i, 1);
+            //    //}
+            //}
             for (int i = 0; i < Input.Length; i++)
             {
                 if (Signs.Contains(Input[i]))
                 {
                     CurrentString += Input[i];
-                    if(Signs.Contains(Input[i + 1]))
-                    {
-                        throw new ArgumentException("We don't play that way");
-                    }
-                    continue;
-                }
-                if (!char.IsWhiteSpace(Input[i]))
-                {
-                  CurrentString += Input[i];
-                }
-                if (char.IsWhiteSpace(Input[i]))
-                {
+                    if (Signs.Contains(Input[i + 1])) { throw new ArgumentException(); }
                     continue;
                 }
                 if (i < Input.Length -1 && Signs.Contains(Input[i+1]))
@@ -53,10 +53,7 @@ namespace SimpleCalculator
                     i += 1;
                     OpIndex = i;
                 }
-                if (i == Input.Length - 1)
-                {
-                    NumTwo = CurrentString;
-                }
+                if (i == Input.Length - 1) { NumTwo = CurrentString; }
             }
             InputArray[0] = NumOne;
             InputArray[1] = Operation.ToString();
