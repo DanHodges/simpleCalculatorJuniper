@@ -56,39 +56,39 @@ namespace SimpleCalculatorTests
         [TestMethod]
         public void DoEasyMath()
         {
-            int Expected = 3;
+            string Expected = "3";
             Parse blah = new Parse("1+2");
             blah.ParseInput();
-            int Actual = blah.DoMath();
+            string Actual = blah.DoMath();
             //throw new ArgumentException(Actual[);
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(Expected, Actual);
         }
         [TestMethod]
         public void DoMoreMath()
         {
-            int Expected = 10;
+            string Expected = "10";
             Parse blah = new Parse("5*2");
             blah.ParseInput();
-            int Actual = blah.DoMath();
+            string Actual = blah.DoMath();
             //throw new ArgumentException(Actual[);
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(Expected, Actual);
         }
         [TestMethod]
         public void DoMathWithNegatives()
         {
-            int Expected = -10;
+            string Expected = "-10";
             Parse blah = new Parse("5*-2");
             blah.ParseInput();
-            int Actual = blah.DoMath();
+            string Actual = blah.DoMath();
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(Expected, Actual);
         }
         [TestMethod]
         public void DoMoreMathWithNegatives()
         {
-            int Expected = 5;
+            string Expected = "5";
             Parse blah = new Parse("-10/-2");
             blah.ParseInput();
-            int Actual = blah.DoMath();
+            string Actual = blah.DoMath();
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(Expected, Actual);
         }
         //[TestMethod]

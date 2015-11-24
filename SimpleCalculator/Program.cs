@@ -18,7 +18,7 @@ namespace SimpleCalculator
             {
                 counter++;
                 input = Console.ReadLine();
-                Console.WriteLine(Evaluate.Eval(input));
+                Console.WriteLine(Evaluate.Eval(input, stack));
                 Console.Write(counter.ToString() + '>');
                 if (input == "exit") { break; }
             }

@@ -8,16 +8,13 @@ namespace SimpleCalculator
 {
     public class Evaluate
     {
-        public static string Eval(string input)
+        public static string Eval(string input, Stack stack)
         {
             Parse StringToEvaluate = new Parse(input);
             StringToEvaluate.ParseInput();
             try
             {
-                //Stack stack = new Stack();
-                //stack.AddLast(StringToEvaluate.DoMath().ToString());
-                //stack.AddLastQ(input);
-                return StringToEvaluate.DoMath().ToString();
+                return StringToEvaluate.DoMathOrAddConstant(stack);
             }
             catch (Exception)
             {
