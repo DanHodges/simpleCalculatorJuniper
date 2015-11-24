@@ -16,11 +16,11 @@ namespace SimpleCalculator
             int counter = 0;
             while (true)
             {
-                counter++;
                 input = Console.ReadLine();
+                if (!input.Contains("=")) { counter++; };
                 Console.WriteLine(Evaluate.Eval(input, stack));
                 Console.Write(counter.ToString() + '>');
-                if (input == "exit") { break; }
+                if (input.ToLower() == "exit" || input.ToLower() == "quit") { break; }
             }
         }
     }

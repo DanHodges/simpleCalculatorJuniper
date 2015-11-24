@@ -12,11 +12,11 @@ namespace SimpleCalculator
         public string LastQ { get; set; }
         public void AddLast(string input) { Last = input; }
         public void AddLastQ(string input) { LastQ = input; }
-        Dictionary<string, int> dictionary = new Dictionary<string, int>();
-        public Dictionary<string, int> GetDictionary() { return dictionary; }
+        public Dictionary<string, string> dictionary = new Dictionary<string, string>();
+        public Dictionary<string, string> GetDictionary() { return dictionary; }
         public void AddToDictionary(string name, string value)
         {
-            dictionary.Add(name, int.Parse(value));
+            dictionary.Add(name, value);
         }
     }
 }

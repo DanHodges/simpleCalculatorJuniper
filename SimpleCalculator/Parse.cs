@@ -72,18 +72,35 @@ namespace SimpleCalculator
             }
             else
             {
-               return DoMath();
+               return DoMath(stack);
             }
         }
 
         public string AddConstant(Stack stack)
         {
+            if (stack.GetDictionary().ContainsKey(InputArray[0]))
+            {
+                stack.dictionary[InputArray[0]] = InputArray[2];
+                return InputArray[0] + " " + InputArray[1] + " " + InputArray[2];
+            }
             stack.AddToDictionary(InputArray[0], InputArray[2]);
             return InputArray[0] + " " + InputArray[1] + " " + InputArray[2];
         }
 
-        public string DoMath()
+        public string DoMath(Stack stack)
         {
+            if (stack.GetDictionary().ContainsKey(InputArray[0]))
+            {
+                Dictionary<string, string> dictionary = stack.GetDictionary();
+                string value = dictionary[InputArray[0]];
+                InputArray[0] = value;
+            }
+            if (stack.GetDictionary().ContainsKey(InputArray[2]))
+            {
+                Dictionary<string, string> dictionary = stack.GetDictionary();
+                string value = dictionary[InputArray[2]];
+                InputArray[2] = value;
+            }
             switch (InputArray[1])
             {
                 case "+" :
